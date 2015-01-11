@@ -153,18 +153,38 @@ MEH Stack
 
 [V] View - HTML front end using Jade
 
-  Layouts:
+  Layout:
 
-    Hand drawn
+      Header includes title (header.jade)
+        Navigation (nav_menu.jade)
+        Body Content ()
+        Results (results.jade)
+      Footer (footer.jade)
+
+    Views:
+
+      Intro (intro.jade => /)
+      Main (main.jade => /main)
+      Training (train.jade => /train)
+
+      History (history.jade => /history)
+
+      (opt) Account
+        (opt) Add
+        (opt) Edit, change password
+        (opt) Delete
+
 
 [C] Control - JavaScript and ExpresssJS (jQuery?)
 
     Routes:
       /
-      /sign-up
-      /login
-      /logout
-      /user_modify
+
+      (opt) /sign-up
+      (opt) /login
+      (opt) /logout
+      (opt) /user_modify
+
       /add_term
       /edit_term
       /delete_term
@@ -172,8 +192,6 @@ MEH Stack
       /view_term
       /learn_mode
       /score_learn
-      /exam_mode
-      /score_exam
       /history
 
 
