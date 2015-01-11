@@ -38,12 +38,12 @@ Test Engine for Dev League Terminology
 
 User accounts stores lists and scores.
 
-Implementation: MEH
-  JavaScript driven
-  HTML front end using Jade
-  ExpresssJS controls
-  MongoLab data storage, accessed via Mongoose.
+Implementation: 
 
+  MEH Stack
+  M: MongoLab data storage, accessed via Mongoose.
+  V: HTML front end using Jade
+  C: JavaScript and ExpresssJS controls
 
 Future Expansion:
   Syntax tutorial/practice for other languages (key words, frequently used constructs)
@@ -69,13 +69,15 @@ Future Expansion:
 
 
 Database Tables:
+
   User Accounts
-  id: auto-generated
+    id: auto-generated
     username:
     password:
     practice test gright: [terminology id]
     practice test grong: [terminology id]
     exam_scores: date and score
+
   Terminology
     id: auto-generated
     term: 
