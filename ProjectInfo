@@ -6,118 +6,163 @@ Dev URL: https://DevEngine.Telodigrade.com
 Deploy URL: https://grok.it
 
 Purpose:
-  Limited time - study DL terms
-  Engage with what we've learned so far (stack)
-  Organize materials
-  Expand - future materials
-  Passion - educational app
-  Reference
+========
 
-"Grok means to understand so thoroughly that the observer becomes a part of the observed—to merge, blend, intermarry, lose identity in group experience.""
+"Grok means to understand so thoroughly that the observer becomes a part of the observed—to merge, blend, intermarry, lose identity in group experience."
+
+  Considerations:
+    Limited time - study DL terms
+    Engage with what we've learned so far (stack)
+    Organize scattered materials for future reference
+    Future Expansion - accommodate new material
+    Passion - educational app
+    Reference
+
 
 Specifications:
+===============
 
-Test Engine for Dev League Terminology
-  Add terminology
-  View Mode: terminology list / select / study
-  Learn Mode: terminology (flash cards)
-    (a) Select term given definition
-        score - auto ("gright it" and "grong")
-    (b) Recite definition given term (rubber duckie)
-        score - on your honor ("gright it" and "grong")
+Phase I: No Account
 
-    Subsequent rounds of term user got "grong" until all terms mastered
-    Tracks/stores project
+  Primary Functions
+    [1] CRUD terminology - form
+      Add (new)
+        a) 
+        b) 
+        c) 
+      Edit
+        a) 
+        b) 
+        c) 
+      Delete
+      fields
+        a) 
+        b) 
+        c) 
+    [2] View Mode: terminology list / select / study 
+      function - describe this...
+      views:
+        a) list view - 
+        b) detailed view - 
+    [3] Learn Mode: terminology (flash cards) - view cards ...
+      function - 
+        Subsequent rounds of term user got "grong" until all terms mastered
+        Tracks/stores project
+      views:
+      (a) Select term given definition
+          score - auto ("gright" and "grong")
+      (b) Recite definition given term (rubber duckie)
+          score - on your honor ("gright" and "grong")
 
-  Test Mode: Randomly presented 
-    (a) term
-    (b) definition
+    [4] Exam Mode: Randomly presented 
+      function: how does this work ???
+      views: exam flashcards and final score
+        (a) flashcards
+        (b) current and final score
 
-    Final score and date stored (Score History)
+    [5] Score History: Final score and date stored
 
 
-User accounts stores lists and scores.
+Phase II: User Accounts
+
+  User accounts stores custom lists and current score, and score history.
+
 
 Implementation: 
+===============
 
-  MEH Stack
-  M: MongoLab data storage, accessed via Mongoose.
-  V: HTML front end using Jade
-  C: JavaScript and ExpresssJS controls
+MEH Stack
+
+
+[M] Data Model - MongoLab data storage, accessed via Mongoose.
+
+  Database: grockit
+
+  Database Collections:
+
+    User Accounts
+      _id: auto-generated
+      username:
+      password:
+      practice test gright: [terminology id]
+      practice test grong: [terminology id]
+      exam_scores: [date and score]
+
+    Terminology
+      _id: auto-generated
+      term: 
+      definition: 
+      categories: []
+      references: [urls of videos, websites, etc.]
+      notes: 
+      code sample:
+      todo:
+
+    Category
+      front-end
+      back-end
+      full
+      language
+      library
+      framework
+      application
+      tool
+      key-word
+      general
+      other
+
+[V] View - HTML front end using Jade
+
+  Layouts:
+
+    Hand drawn
+
+[C] Control - JavaScript and ExpresssJS controls
+
+    Routes:
+      /
+      /sign-up
+      /login
+      /logout
+      /user_modify
+      /add_term
+      /edit_term
+      /delete_term
+      /view_list
+      /view_term
+      /learn_mode
+      /score_learn
+      /exam_mode
+      /score_exam
+      /history
+
+
 
 Future Expansion:
+=================
+
+  Mobile and Tablet Considerations (limited details and layout)
+
   Syntax tutorial/practice for other languages (key words, frequently used constructs)
         JS, Java, Ruby, Python
+
   Games
     wordfind (key words)
     word invader
+    matching
+    etc.
 
   Diagram
     expandable/contractable (see comprend.io)
 
   Procedures
     - how to set up ...
-      gulp
-      node
-      npm
-      docker
-      MEH
-      MEAN
-      etc.
+        gulp
+        node
+        npm
+        docker
+        MEH
+        MEAN
+        etc.
 
   Code Snipets Reference and Practice
-
-
-Database Tables:
-
-  User Accounts
-    id: auto-generated
-    username:
-    password:
-    practice test gright: [terminology id]
-    practice test grong: [terminology id]
-    exam_scores: date and score
-
-  Terminology
-    id: auto-generated
-    term: 
-    definition: 
-    categories: []
-    references: [urls of videos, websites, etc.]
-    notes: 
-    code sample:
-    todo:
-
-  Category
-    front-end
-    back-end
-    full
-    language
-    library
-    framework
-    application
-    tool
-    key-word
-    general
-    other
-
-Routes:
-  /
-  /sign-up
-  /login
-  /logout
-  /user_modify
-  /add_term
-  /edit_term
-  /delete_term
-  /view_list
-  /view_term
-  /learn_mode
-  /score_learn
-  /exam_mode
-  /score_exam
-  /history
-
-
-
-Layout:
