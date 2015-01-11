@@ -1,0 +1,121 @@
+Project Name: DevGrok
+App Name: GrokIt
+Will be repo'd on BitBucket (private): 
+Will be hosted on: coreos1.devleague.com
+Dev URL: https://DevEngine.Telodigrade.com
+Deploy URL: https://grok.it
+
+Purpose:
+  Limited time - study DL terms
+  Engage with what we've learned so far (stack)
+  Organize materials
+  Expand - future materials
+  Passion - educational app
+  Reference
+
+"Grok means to understand so thoroughly that the observer becomes a part of the observed—to merge, blend, intermarry, lose identity in group experience.""
+
+Specifications:
+
+Test Engine for Dev League Terminology
+  Add terminology
+  View Mode: terminology list / select / study
+  Learn Mode: terminology (flash cards)
+    (a) Select term given definition
+        score - auto ("gright it" and "grong")
+    (b) Recite definition given term (rubber duckie)
+        score - on your honor ("gright it" and "grong")
+
+    Subsequent rounds of term user got "grong" until all terms mastered
+    Tracks/stores project
+
+  Test Mode: Randomly presented 
+    (a) term
+    (b) definition
+
+    Final score and date stored (Score History)
+
+
+User accounts stores lists and scores.
+
+Implementation: MEH
+  JavaScript driven
+  HTML front end using Jade
+  ExpresssJS controls
+  MongoLab data storage, accessed via Mongoose.
+
+
+Future Expansion:
+  Syntax tutorial/practice for other languages (key words, frequently used constructs)
+        JS, Java, Ruby, Python
+  Games
+    wordfind (key words)
+    word invader
+
+  Diagram
+    expandable/contractable (see comprend.io)
+
+  Procedures
+    - how to set up ...
+      gulp
+      node
+      npm
+      docker
+      MEH
+      MEAN
+      etc.
+
+  Code Snipets Reference and Practice
+
+
+Database Tables:
+  User Accounts
+  id: auto-generated
+    username:
+    password:
+    practice test gright: [terminology id]
+    practice test grong: [terminology id]
+    exam_scores: date and score
+  Terminology
+    id: auto-generated
+    term: 
+    definition: 
+    categories: []
+    references: [urls of videos, websites, etc.]
+    notes: 
+    code sample:
+    todo:
+
+  Category
+    front-end
+    back-end
+    full
+    language
+    library
+    framework
+    application
+    tool
+    key-word
+    general
+    other
+
+Routes:
+  /
+  /sign-up
+  /login
+  /logout
+  /user_modify
+  /add_term
+  /edit_term
+  /delete_term
+  /view_list
+  /view_term
+  /learn_mode
+  /score_learn
+  /exam_mode
+  /score_exam
+  /history
+
+
+
+Layout:
