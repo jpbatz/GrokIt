@@ -23,9 +23,77 @@ Specifications:
 ===============
 
 Phase I: No Account
+ 
+  [0] General Layout View
+        Title
+        Header
+          Navigation
+            Body Content
+            Results
+        Footer
 
-  Primary Functions
-    [1] CRUD terminology - form
+  [1] (opt) Intro View - go directly to [2] for now
+      a) (opt) Login
+      b) (opt) Sign-Up (implement later)
+      c) (opt) Demo
+
+  [2] Main View: 
+      a) list view - list of terms in left panel (on page load)
+      b) detailed view - click on term to display details in right panel
+      c) Terminology CRUD form
+          Add - new auto _id (hidden)
+            a) term: text, alpha-num
+            b) definition: text-area
+            c) mastered: boolean (default=false)
+          Edit - _id (hidden)
+            a) term: text, alpha-num (no-edit)
+            b) definition: text-area
+            c) mastered: boolean (reset)
+          Delete - confirm, by _id (hidden)
+      d) menu options to 
+          i)    practice => [3] 
+          ii)   (opt) logout
+          iii)  (opt) edit profile 
+          iv)   (opt) display score history - final scores
+                - (opt) date completed
+                - (opt) round number
+                - (opt) time begin and end per term
+                - (opt) calculate total time per round
+
+  [3] Learn View:
+      Flashcard style - 
+        Subsequent rounds of terms user got "grong" until all terms mastered
+        (opt) Tracks and stores stats
+
+        a)  Select given (left panel) implies the guess (right panel): 
+              term or definition
+        b)  Select term given the definition or Recite definition given term (rubber 
+              duckie mode) - selected given displays in left panel, enter guess in right panel
+        c)  Score ("gright" and "grong") 
+                - gright => mastered = true
+                - grong  => practice list for next round
+              - current answer visual confirmation (check mark for gright, "x" for 
+                  grong)
+              - updates scoreboard at bottom
+                - display round number and question number / total number of terms
+                - computer calculated for guess term, 
+                - on your honor for guess definition
+        d)  After last term played
+              - confirmation and display 
+                  - round number and 
+                  - final score
+              - 100% => graduate! 
+                  - all terms updated to "mastered" = true, 
+                  - display number of rounds taken to acheive
+              - otherwise, option to play next round (not-mastered list of terms)
+
+
+
+Phase II: User Accounts
+
+  User accounts stores custom lists and current score, and score history.
+
+    [1] User Account CRUD form
       Add (new)
         a) 
         b) 
@@ -35,37 +103,9 @@ Phase I: No Account
         b) 
         c) 
       Delete
-      fields
         a) 
         b) 
         c) 
-    [2] View Mode: terminology list / select / study 
-      function - describe this...
-      views:
-        a) list view - 
-        b) detailed view - 
-    [3] Learn Mode: terminology (flash cards) - view cards ...
-      function - 
-        Subsequent rounds of term user got "grong" until all terms mastered
-        Tracks/stores project
-      views:
-      (a) Select term given definition
-          score - auto ("gright" and "grong")
-      (b) Recite definition given term (rubber duckie)
-          score - on your honor ("gright" and "grong")
-
-    [4] Exam Mode: Randomly presented 
-      function: how does this work ???
-      views: exam flashcards and final score
-        (a) flashcards
-        (b) current and final score
-
-    [5] Score History: Final score and date stored
-
-
-Phase II: User Accounts
-
-  User accounts stores custom lists and current score, and score history.
 
 
 Implementation: 
@@ -117,7 +157,7 @@ MEH Stack
 
     Hand drawn
 
-[C] Control - JavaScript and ExpresssJS controls
+[C] Control - JavaScript and ExpresssJS (jQuery?)
 
     Routes:
       /
