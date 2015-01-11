@@ -1,0 +1,7 @@
+npm install -g express
+express --version
+cd DevLeague/grokit
+npm init // creates package.json
+npm i -S express  // adds dependecy to package.json and places express in node_modules
+
+

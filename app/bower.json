@@ -1,0 +1,16 @@
+{
+  "name": "app",
+  "main": "app.js",
+  "version": "0.0.0",
+  "authors": [
+    "jpbatz <jph@hawaii.edu>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

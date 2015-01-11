@@ -1,0 +1,32 @@
+{
+  "name": "grokit",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:jpbatz/grokit.git"
+  },
+  "author": "jpbatz",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.10.0",
+    "connect-flash": "^0.1.1",
+    "express": "^4.10.7",
+    "express-session": "^1.9.3",
+    "jade": "^1.8.2",
+    "method-override": "^2.3.0",
+    "mongoose": "^3.8.21",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.5.2",
+    "gulp": "^3.8.10",
+    "gulp-sass": "^1.2.4",
+    "tiny-lr": "^0.1.4"
+  }
+}
