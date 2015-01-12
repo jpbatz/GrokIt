@@ -8,7 +8,7 @@ app.set('view engine', 'jade');
 
  app.get('/', function(req, res) {
   // res.send('<h1>Hello</h1> Express');
-  res.render('default', 
+  res.render('index', 
     {
       title: "GrokIt",
       header: "Welcome!!",
@@ -35,6 +35,8 @@ app.get('/who/:name?/:title?', function(req, res) {
   res.send('Bad Route');
  });
 
- var server = app.listen(3000, function() {
-  console.log('Listening of port 3000');
- });
+ // var server = app.listen(3000, function() {
+ //  console.log('Listening of port 3000');
+ // });
+ 
+ module.exports.app = app;
