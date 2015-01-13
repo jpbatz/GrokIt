@@ -5,7 +5,7 @@ app.use(express.static('./public'));
 app.set('view engine', 'jade');
 // to specify other than views folder:
 // __dirname is global var for current dir path where app.js is located
-// ap.set('views', __dirname + '/partials');
+// ap.set('views', __dirname + '/includes');
 
  app.get('/', function(req, res) {
   // res.send('<h1>Hello</h1> Express');
