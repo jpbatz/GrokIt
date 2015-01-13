@@ -5,6 +5,7 @@
   "authors": [
     "jpbatz <jph@hawaii.edu>"
   ],
+  "description": "A Grok",
   "license": "MIT",
   "ignore": [
     "**/.*",
