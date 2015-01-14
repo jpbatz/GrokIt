@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var server = require('./app');
+var server = require('./server');
 
 gulp.task('styles', function() {
   return gulp.src('./scss/**/*.scss')

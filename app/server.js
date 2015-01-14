@@ -4,7 +4,7 @@
 app.use(express.static('./public'));
 app.set('view engine', 'jade');
 // to specify other than views folder:
-// __dirname is global var for current dir path where app.js is located
+// __dirname is global var for current dir path where server.js is located
 // ap.set('views', __dirname + '/includes');
 
  app.get('/', function(req, res) {

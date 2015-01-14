@@ -1,6 +1,6 @@
 {
   "name": "grokit",
-  "main": "app.js",
+  "main": "server.js",
   "version": "0.0.0",
   "authors": [
     "jpbatz <jph@hawaii.edu>"
