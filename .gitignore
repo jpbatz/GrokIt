@@ -1,3 +1,4 @@
 .DS_Store
+app/config.json
 app/node_modules
 app/public/bower_components
