@@ -10,6 +10,12 @@ This README would normally document whatever steps are necessary to get your app
 
 ### How do I get set up? ###
 
+$ cd DevLeague
+$ git clone git@bitbucket.org:jpbatz/grokit.git
+$ cd grokit/app
+$ npm install
+$ bower install
+
 * Summary of set up
 * Configuration
 * Dependencies

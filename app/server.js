@@ -17,20 +17,37 @@ app.set('view engine', 'jade');
     });
  });
 
- app.get('/me', function(req, res) {
-  res.send('@planetoftheweb');
+ app.get('/add_term', function(req, res) {
+  res.send('Adding Terminology');
  });
 
- app.get('/who/:name?', function(req, res) {
-  var name = req.params.name;
-  res.send(name + ' was here');
+ app.get('/test_term', function(req, res) {
+  res.send('Testing Terminology');
  });
 
-app.get('/who/:name?/:title?', function(req, res) {
-  var name = req.params.name;
-  var title = req.params.title;
-  res.send('<p>name: ' + name + '<br>title: ' + title);
+ app.get('/test_def', function(req, res) {
+  res.send('Testing Definition');
  });
+
+
+ app.get('/edit_term', function(req, res) {
+  res.send('Edit Terminology');
+ });
+
+ app.get('/del_term', function(req, res) {
+  res.send('Delete Terminology');
+ });
+
+//  app.get('/who/:name?', function(req, res) {
+//   var name = req.params.name;
+//   res.send(name + ' was here');
+//  });
+
+// app.get('/who/:name?/:title?', function(req, res) {
+//   var name = req.params.name;
+//   var title = req.params.title;
+//   res.send('<p>name: ' + name + '<br>title: ' + title);
+//  });
 
  app.get('*', function(req, res) {
   res.send('Bad Route');
