@@ -2,5 +2,23 @@
 @import "../public/bower_components/foundation/scss/foundation";
 
 body {
-  background-color: pink;
+  background-color: papayawhip;
+}
+
+.add-button {
+  font-size: 35px;
+  padding: 4px 15px 10px 15px;
+  border-radius: 10px;
+}
+
+footer {
+  background-color: black;
+  color: ivory;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+  // valign: middle;
+  font-size: 10px;
 }

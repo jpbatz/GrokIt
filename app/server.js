@@ -17,8 +17,22 @@ app.set('view engine', 'jade');
     });
  });
 
+ app.get('/main', function(req, res) {
+  // res.send('Display Terminology');
+  res.render('terms/manage');
+ });
+
  app.get('/add_term', function(req, res) {
-  res.send('Adding Terminology');
+  // res.send('Adding Terminology');
+  res.render('./terms/create');
+ });
+
+ app.get('/edit_term', function(req, res) {
+  res.send('Edit Terminology');
+ });
+
+ app.get('/del_term', function(req, res) {
+  res.send('Delete Terminology');
  });
 
  app.get('/test_term', function(req, res) {
@@ -29,14 +43,6 @@ app.set('view engine', 'jade');
   res.send('Testing Definition');
  });
 
-
- app.get('/edit_term', function(req, res) {
-  res.send('Edit Terminology');
- });
-
- app.get('/del_term', function(req, res) {
-  res.send('Delete Terminology');
- });
 
 //  app.get('/who/:name?', function(req, res) {
 //   var name = req.params.name;
