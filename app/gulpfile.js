@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var server = require('./server');
+var config = require('./config');
 
 gulp.task('styles', function() {
   return gulp.src('./scss/**/*.scss')
@@ -17,7 +18,7 @@ gulp.task('watch_styles', function() {
 gulp.task('express', function() {
   var app = server.app;
   app.use(require('connect-livereload')({port: 35729}));
-  app.listen(8080);
+  app.listen(config.port);
 });
 
 function notifyLiveReload(event) {

@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var methodOverride = require('method-override');
-
+var config = require('./config');
 
 // MIDDLEWARE
 
@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 // DB CONNECTION
-mongoose.connect('mongodb://dbadmin:dbadmin@ds031661.mongolab.com:31661/grokitdb');
+mongoose.connect(config.databaseURI);
 
 // MODELS
 var termSchema = mongoose.Schema({
