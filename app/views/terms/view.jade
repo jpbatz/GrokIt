@@ -1,0 +1,20 @@
+//- view.jade
+extends ../layout.jade
+
+block content
+  .row
+    .small-12.medium-12.large-12.columns
+      h3 Term: #{stuff.term}
+      p Definition: #{stuff.definition} 
+      p Notes: #{stuff.notes} 
+      p Sites: #{stuff.sites}
+      p Date: #{stuff.date}
+      p Id: #{stuff._id}
+  .row
+    .small-12.medium-12.large-12.columns
+      a(href="/main")
+        button(type="button", class="main-button") Main
+      a(href="/edit_term/#{stuff._id}")
+        button(type="button", class="edit-button") Edit
+      form(method='post',action='/delete_term/#{stuff._id}?_method=DELETE')
+        input(type='submit',name='delete',value='Delete', class='button radius small')#delete_button

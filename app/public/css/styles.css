@@ -5620,6 +5620,7 @@ body {
   background-color: papayawhip; }
 
 .add-button {
+  float: right;
   font-size: 35px;
   padding: 4px 15px 10px 15px;
   border-radius: 10px; }

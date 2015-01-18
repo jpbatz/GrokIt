@@ -1,14 +1,21 @@
+//- create.jade
 extends ../layout.jade
 
 block content
   .row
       .small-12.medium-12.large-12.columns
         h3 Add a Term
-        form(method="post", action="")
+        form(method="post", action="/create_term")
           label(for="term") Term: 
           input(type="text" name="term")
           label(for="definition") Definition:
-          input(type="text", name="definition")          
-          label(for="site") Site:
-          input(type="text", name="site")
-          input(type="submit", name="submit", value="Submit").submit-button
+          input(type="text", name="definition")
+          label(for="notes") Notes:
+          input(type="text", name="notes")       
+          label(for="sites") Site(s):
+          input(type="text", name="sites")
+          input(type="submit", name="submit", value="Submit").submit-butto
+  .row
+    .small-12.medium-12.large-12.columns          
+      a(href="/main")
+        button(type="button", class="cancel-button") Cancel

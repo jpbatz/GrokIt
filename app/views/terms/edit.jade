@@ -1,0 +1,21 @@
+//- edit.jade
+extends ../layout.jade
+
+block content
+  .row
+      .small-12.medium-12.large-12.columns
+        h3 Edit a Term
+        form(method="post", action="/update_term/#{stuff._id}?_method=PUT")
+          label(for="term") Term: 
+          input(type="text" name="term", id="term", value="#{stuff.term}")
+          label(for="definition") Definition:
+          input(type="text", name="definition", id="definition", value="#{stuff.definition}")
+          label(for="notes") Notes:
+          input(type="text", name="notes", id="notes", value="#{stuff.notes}")       
+          label(for="sites") Site(s):
+          input(type="text", name="sites", id="sites", value="#{stuff.sites}")
+          input(type="submit", name="submit", value="Update").submit-button
+  .row
+    .small-12.medium-12.large-12.columns
+      a(href="/main")
+        button(type="button", class="cancel-button") Cancel
