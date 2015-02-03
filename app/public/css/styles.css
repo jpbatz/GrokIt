@@ -5620,17 +5620,21 @@ body {
   background-color: papayawhip; }
 
 .add-button {
-  float: right;
+  float: left;
   font-size: 35px;
   padding: 4px 15px 10px 15px;
   border-radius: 10px; }
 
 footer {
   background-color: black;
-  color: ivory;
+  color: papayawhip;
   position: fixed;
   left: 0;
   bottom: 0;
-  margin: auto;
+  padding-top: 10px;
+  width: 100%;
   text-align: center;
   font-size: 10px; }
+  footer p {
+    line-height: 25px;
+    margin-bottom: 0; }

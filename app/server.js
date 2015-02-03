@@ -1,22 +1,19 @@
+// app/server.js
 var express = require('express');
 var app = express();
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var methodOverride = require('method-override');
+// var flash = require('connect-flash');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var crypto = require('crypto');
 var config = require('./config');
 
-// MIDDLEWARE
-
-app.use(express.static('./public'));
-app.set('view engine', 'jade');
-// to specify other than views folder:
-// __dirname is global var for current dir path where server.js is located
-// ap.set('views', __dirname + '/includes');
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(methodOverride('_method'));
-
-// DB CONNECTION
-mongoose.connect(config.databaseURI);
+// MODELS External
+// var Article = require('./models/article');
+// var User = require('./models/user');
 
 // MODELS
 var termSchema = mongoose.Schema({
@@ -29,11 +26,65 @@ var termSchema = mongoose.Schema({
 
 var Term = mongoose.model('Term', termSchema);
 
+var userSchema = mongoose.Schema({
+  name: {
+    firstName: String,
+    lastName: String
+  },
+  username: String,
+  email: String,
+  password: String
+});
+
+var User = mongoose.model('User', userSchema);
+
+// DB CONNECTION
+mongoose.connect(config.databaseURI);
+
+
+// MIDDLEWARE
+app.use(express.static('./public'));
+app.set('view engine', 'jade');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
+
+app.use(session({
+  secret: config.secret,
+  resave: false,
+  saveUninitialized: true
+}));
+// app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if(err) { return done(err); }
+      if(!user) {
+        return done(null, false, { message: 'Invalid username' });
+      }
+      if(!user.validPassword(password)) {
+        return done(null, false, { message: 'Invalid password' });
+      }
+      return done(null, user);
+    });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  User.findById(user._id, function(err, user) {
+    done(null, user);
+  });
+});
 
 // ROUTES
 
 app.get('/', function(req, res) {
-// res.send('<h1>Hello</h1> Express');
   res.render('index', 
     {
       title: "GrokIt",
@@ -52,7 +103,7 @@ app.get('/main', function(req, res) {
         count : terms.length
       };
       // res.send('Display Terminology');
-      res.render('./terms/manage', locals);
+      res.render('./terms/main', locals);
     }
   });
 });
@@ -62,7 +113,6 @@ app.get('/add_term', function(req, res) {
   res.render('./terms/create');
 });
 
-// create term
 app.post('/create_term', function(req, res) {
   var newTerm = Term({
     "term" : req.body.term,
@@ -146,11 +196,36 @@ app.delete('/delete_term/:id', function(req, res) {
   });
 });
 
-app.get('/test_term', function(req, res) {
+app.get('/signup', function(req, res) {
+  res.render('./auth/signup');
+});
+
+app.post('/create_account', function(req, res) {
+  if(req.body.password !== req.body.password_confirm) {
+    var locals = { message: 'Passwords do not match'
+    };
+    return res.render('./auth/create');
+  }
+
+  var newUser = User({
+    "name" : { 
+      firstName: req.body.first_name,
+      lastName: req.body.last_name
+    },
+    "email" : req.body.email,
+    "username" : req.body.username,
+    "password" : User.hashPassword(req.body.password)
+  });
+
+  // newUser.save
+  
+});
+
+app.get('/tutor_term', function(req, res) {
   res.send('Testing Terminology');
 });
 
-app.get('/test_def', function(req, res) {
+app.get('/tutor_def', function(req, res) {
   res.send('Testing Definition');
 });
 
@@ -158,8 +233,5 @@ app.get('*', function(req, res) {
   res.send('Bad Route');
 });
 
-// var server = app.listen(8080, function() {
-//  console.log('Listening of port 8080');
-// });
-
+// require('/routes')(app, passport);
 module.exports.app = app;
