@@ -1,0 +1,6 @@
+{
+  "port" : 8080,
+  "secret" : "GrokIt",
+  "databaseURI" : "mongodb://dbadmin:dbadmin@ds031661.mongolab.com:31661/grokitdb",
+  "salt": "admin"
+}
